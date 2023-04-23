@@ -1,9 +1,21 @@
+:root {
+  --black: #212121;
+  --green: #09A494;
+  --white: #FFFFFF;
+}
+
 body {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;
+  color: var(--black);
+}
+
+footer {
+  color: var(--white);
+  background-color: var(--green);
 }
 
 h1 {
