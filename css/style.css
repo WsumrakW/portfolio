@@ -1,7 +1,7 @@
 :root {
   --black: #212121;
-  --green: #09A494;
-  --white: #FFFFFF;
+  --green: #09a494;
+  --white: #ffffff;
 }
 
 *,
@@ -48,7 +48,8 @@ h3 {
   line-height: 120%;
 }
 
-button, a {
+button,
+a {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-style: normal;
   font-weight: 400;
@@ -69,4 +70,34 @@ button, a {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.main-nav a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 15px;
+  color: var(--black);
+}
+
+.main-nav a:hover {
+  color: var(--green);
+}
+
+button {
+  padding: 0;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: lowercase;
+  padding: 6px 10px 10px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: var(--green);
+  background-color: var(--white);
+}
+
+button:hover {
+  color: var(--white);
+  background-color: var(--green);
 }
