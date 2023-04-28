@@ -189,11 +189,11 @@ button:hover {
 }
 
 .contact-link_phone {
-  background-image: url("/img/phone.svg");
+  background-image: url("../img/phone.svg");
 }
 
 .contact-link_mail {
-  background-image: url("/img/email.svg");
+  background-image: url("../img/email.svg");
 }
 
 .user-photo {
@@ -233,17 +233,17 @@ button:hover {
 }
 
 .skill-item_html {
-  background-image: url("/img/skills/html.svg");
+  background-image: url("../img/skills/html.svg");
 }
 
 .skill-item_css {
-  background-image: url("/img/skills/css.svg");
+  background-image: url("../img/skills/css.svg");
 }
 
 .skill-item_python {
-  background-image: url("/img/skills/python.svg");
+  background-image: url("../img/skills/python.svg");
 }
 
 .skill-item_cpp {
-  background-image: url("/img/skills/c++.svg");
+  background-image: url("../img/skills/c++.svg");
 }
