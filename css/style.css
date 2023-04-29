@@ -221,6 +221,7 @@ a {
   padding: 0;
   list-style-type: none;
   margin-bottom: 40px;
+  gap: 40px;
 }
 
 .contact li {
@@ -228,12 +229,12 @@ a {
 }
 
 .contact-link {
-  padding: 0 42px;
   background-repeat: no-repeat;
   background-position: left;
 }
 
 .contact-link a {
+  padding: 5px 0 5px 42px;
   display: block;
   text-decoration: none;
   color: var(--black);
