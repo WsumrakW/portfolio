@@ -101,6 +101,10 @@ a {
   margin-bottom: 120px;
 }
 
+.main-header a {
+  line-height: 0;
+}
+
 .main-nav {
   display: flex;
 }
