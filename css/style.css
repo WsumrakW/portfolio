@@ -447,10 +447,10 @@ a {
   }
 
   .nav-btn_close {
-    background-image: url(../img/close.svg);
+    background-image: url("../img/close.svg");
   }
   .nav-btn_open {
-    background-image: url(../img/burger.svg);
+    background-image: url("../img/burger.svg");
   }
 
   .main-header-wrap {
