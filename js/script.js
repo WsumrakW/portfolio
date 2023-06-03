@@ -28,7 +28,7 @@ const skills = {
       const dt = document.createElement("dt");
       const dd = document.createElement("dd");
       const div = document.createElement("div");
-      dt.classList.add("skill-item", item.skillClass);
+      dt.classList.add("skill-item");
       dd.classList.add("skill-level");
       dt.textContent = item.skillName;
       div.textContent = item.skillLevel + "%";

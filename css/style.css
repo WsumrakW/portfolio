@@ -10,6 +10,15 @@
   box-sizing: border-box;
 }
 
+.dark-theme {
+  --black: #cccccc;
+  --white: #212121;
+}
+
+.dark-theme .social-link {
+  background-color: #cccccc;
+}
+
 body {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-style: normal;
@@ -17,6 +26,7 @@ body {
   font-size: 20px;
   line-height: 150%;
   color: var(--black);
+  background-color: var(--white);
 }
 
 section {
@@ -247,8 +257,16 @@ a {
   background-image: url("../img/phone.svg");
 }
 
+.dark-theme .contact-link_phone {
+  background-image: url("../img/dark-theme/phone.svg");
+}
+
 .contact-link_mail {
   background-image: url("../img/email.svg");
+}
+
+.dark-theme .contact-link_mail {
+  background-image: url("../img/dark-theme/email.svg");
 }
 
 .social {
