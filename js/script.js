@@ -30,10 +30,10 @@ const skills = {
       const div = document.createElement("div");
       dt.classList.add("skill-item");
       dd.classList.add("skill-level");
-      dt.textContent = item.skillName;
-      div.textContent = item.skillLevel + "%";
-      dt.style.backgroundImage = "url(img/skills/" + item.skillImage;
-      div.style.width = item.skillLevel + "%";
+      dt.textContent = `${item.skillName}`;
+      div.textContent = `${item.skillLevel}%`;
+      dt.style.backgroundImage = `url(img/skills/${item.skillImage})`;
+      div.style.width = `${item.skillLevel}%`;
       dd.append(div);
       parentElement.append(dt, dd);
     });

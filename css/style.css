@@ -335,6 +335,13 @@ a {
   color: var(--white);
   background-color: var(--black);
   padding: 50px;
+  
+}
+
+.dark-theme .main-footer {
+  color: var(--black);
+  background-color: var(--white);
+  border-top: 1px solid var(--black);
 }
 
 @media screen and (max-width: 1024px) {
