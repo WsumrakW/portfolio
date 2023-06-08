@@ -51,9 +51,6 @@ const skills = {
         console.log("сортировка по уровню");
         sortByLevel(this.data);
         break;
-
-      default:
-        console.log("неизвестная кнопка");
     }
   },
 };
@@ -126,3 +123,46 @@ function sortByLevel() {
 
   skills.generateList(skillList);
 }
+
+const mainNav = document.querySelector(".main-nav");
+const navBtn = document.querySelector(".nav-btn");
+
+navBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("nav-btn_open")) {
+    menu.open();
+  } else {
+    menu.close();
+  }
+});
+
+function closeMenu() {
+  mainNav.classList.add("main-nav_closed");
+  navBtn.classList.remove("nav-btn_close");
+  navBtn.classList.add("nav-btn_open");
+  navBtn.innerHTML = '<span class="visually-hidden">Открыть меню</span>';
+}
+
+function openMenu() {
+  mainNav.classList.remove("main-nav_closed");
+  navBtn.classList.remove("nav-btn_open");
+  navBtn.classList.add("nav-btn_close");
+  navBtn.innerHTML = '<span class="visually-hidden">Закрыть меню</span>';
+}
+
+const menu = {
+  close: function () {
+    mainNav.classList.add("main-nav_closed");
+    navBtn.classList.remove("nav-btn_close");
+    navBtn.classList.add("nav-btn_open");
+    navBtn.innerHTML = '<span class="visually-hidden">Открыть меню</span>';
+  },
+
+  open: function () {
+    mainNav.classList.remove("main-nav_closed");
+    navBtn.classList.remove("nav-btn_open");
+    navBtn.classList.add("nav-btn_close");
+    navBtn.innerHTML = '<span class="visually-hidden">Закрыть меню</span>';
+  },
+};
+
+menu.close();
