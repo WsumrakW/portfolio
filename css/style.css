@@ -335,7 +335,6 @@ a {
   color: var(--white);
   background-color: var(--black);
   padding: 50px;
-  
 }
 
 .dark-theme .main-footer {
@@ -454,6 +453,10 @@ a {
     width: 30px;
     height: 30px;
     border: none;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
   }
 
   .nav-btn_close {

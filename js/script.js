@@ -4,23 +4,23 @@ const skills = {
   isSort: false,
   data: [
     {
-      skillName: "html",
-      skillLevel: 30,
+      name: "html",
+      level: 30,
       skillImage: "html.svg",
     },
     {
-      skillName: "css",
-      skillLevel: 40,
+      name: "css",
+      level: 40,
       skillImage: "css.svg",
     },
     {
-      skillName: "python",
-      skillLevel: 50,
+      name: "python",
+      level: 50,
       skillImage: "python.svg",
     },
     {
-      skillName: "cpp",
-      skillLevel: 80,
+      name: "cpp",
+      level: 80,
       skillImage: "c++.svg",
     },
   ],
@@ -32,29 +32,29 @@ const skills = {
       const div = document.createElement("div");
       dt.classList.add("skill-item");
       dd.classList.add("skill-level");
-      dt.textContent = item.skillName;
-      div.textContent = `${item.skillLevel}%`;
+      dt.textContent = item.name;
+      div.textContent = `${item.level}%`;
       dt.style.backgroundImage = `url(img/skills/${item.skillImage})`;
-      div.style.width = `${item.skillLevel}%`;
+      div.style.width = `${item.level}%`;
       dd.append(div);
       parentElement.append(dt, dd);
     });
   },
   sortList: function (type) {
-    switch (type) {
-      case "name":
-        console.log("сортировка по имени");
-        sortByName(this.data);
-        break;
+    if (this.isSort !== type) {
+      this.data.sort(getComparer(type));
+      skills.isSort = type;
 
-      case "level":
-        console.log("сортировка по уровню");
-        sortByLevel(this.data);
-        break;
+      console.log(`отсортировали данные по ${type}`);
+    } else {
+      this.data.reverse();
+
+      console.log("инвертировали порядок сортировки");
     }
+
+    skills.generateList(skillList);
   },
 };
-
 const skillList = document.querySelector("dl.skill-list");
 
 skills.generateList(skillList);
@@ -64,7 +64,7 @@ const skillsButtons = document.querySelector(".skills-buttons");
 skillsButtons.addEventListener("click", (e) => {
   let target = e.target;
 
-  if (e.target.nodeName == "BUTTON") {
+  if (target.nodeName == "BUTTON") {
     switch (target.dataset.type) {
       case "name":
         skills.sortList(target.dataset.type);
@@ -94,36 +94,6 @@ function getComparer(prop) {
   };
 }
 
-function sortByName() {
-  if (skills.isSort !== "name") {
-    skills.data.sort(getComparer("skillName"));
-    skills.isSort = "name";
-
-    console.log("отсортировали данные по имени");
-  } else {
-    skills.data.reverse();
-
-    console.log("инвертировали порядок сортировки");
-  }
-
-  skills.generateList(skillList);
-}
-
-function sortByLevel() {
-  if (skills.isSort !== "level") {
-    skills.data.sort(getComparer("skillLevel"));
-    skills.isSort = "level";
-
-    console.log("отсортировали данные по уровню");
-  } else {
-    skills.data.reverse();
-
-    console.log("инвертировали порядок сортировки");
-  }
-
-  skills.generateList(skillList);
-}
-
 const mainNav = document.querySelector(".main-nav");
 const navBtn = document.querySelector(".nav-btn");
 
@@ -134,20 +104,6 @@ navBtn.addEventListener("click", (e) => {
     menu.close();
   }
 });
-
-function closeMenu() {
-  mainNav.classList.add("main-nav_closed");
-  navBtn.classList.remove("nav-btn_close");
-  navBtn.classList.add("nav-btn_open");
-  navBtn.innerHTML = '<span class="visually-hidden">Открыть меню</span>';
-}
-
-function openMenu() {
-  mainNav.classList.remove("main-nav_closed");
-  navBtn.classList.remove("nav-btn_open");
-  navBtn.classList.add("nav-btn_close");
-  navBtn.innerHTML = '<span class="visually-hidden">Закрыть меню</span>';
-}
 
 const menu = {
   close: function () {
