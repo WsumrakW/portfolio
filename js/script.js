@@ -6,22 +6,22 @@ const skills = {
     {
       name: "html",
       level: 30,
-      skillImage: "html.svg",
+      image: "html.svg",
     },
     {
       name: "css",
       level: 40,
-      skillImage: "css.svg",
+      image: "css.svg",
     },
     {
       name: "python",
       level: 50,
-      skillImage: "python.svg",
+      image: "python.svg",
     },
     {
       name: "cpp",
       level: 80,
-      skillImage: "c++.svg",
+      image: "c++.svg",
     },
   ],
   generateList: function (parentElement) {
@@ -34,7 +34,7 @@ const skills = {
       dd.classList.add("skill-level");
       dt.textContent = item.name;
       div.textContent = `${item.level}%`;
-      dt.style.backgroundImage = `url(img/skills/${item.skillImage})`;
+      dt.style.backgroundImage = `url(img/skills/${item.image})`;
       div.style.width = `${item.level}%`;
       dd.append(div);
       parentElement.append(dt, dd);
@@ -122,3 +122,35 @@ const menu = {
 };
 
 menu.close();
+
+const switchCheckbox = document.querySelector(".switch-checkbox");
+let test = true;
+
+function switchTheme() {
+  if (switchCheckbox.checked) {
+    document.body.classList.remove("dark-theme");
+    localStorage.setItem("theme", true);
+  } else {
+    document.body.classList.add("dark-theme");
+    localStorage.setItem("theme", false);
+  }
+}
+
+switchCheckbox.addEventListener("change", (e) => {
+  switchTheme();
+});
+
+function startTheme() {
+  if (localStorage.getItem("theme") == "true") {
+    document.body.classList.remove("dark-theme");
+    switchCheckbox.checked = true;
+    console.log("test1");
+  }
+  if (localStorage.getItem("theme") == "false") {
+    document.body.classList.add("dark-theme");
+    switchCheckbox.checked = false;
+    console.log(localStorage.getItem("theme"));
+  }
+}
+
+startTheme();
