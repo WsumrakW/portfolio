@@ -2,28 +2,7 @@
 
 const skills = {
   isSort: false,
-  data: [
-    {
-      name: "html",
-      level: 30,
-      image: "html.svg",
-    },
-    {
-      name: "css",
-      level: 40,
-      image: "css.svg",
-    },
-    {
-      name: "python",
-      level: 50,
-      image: "python.svg",
-    },
-    {
-      name: "cpp",
-      level: 80,
-      image: "c++.svg",
-    },
-  ],
+  data: [],
   generateList: function (parentElement) {
     parentElement.innerHTML = "";
     this.data.forEach((item) => {
@@ -54,10 +33,21 @@ const skills = {
 
     skills.generateList(skillList);
   },
+  initList: function (url, parentElement, skillSection) {
+    fetch(url)
+      .then((data) => data.json())
+      .then((object) => {
+        this.data = object;
+        this.generateList(parentElement);
+      })
+      .catch(() => {
+        console.error("что-то пошло не так");
+        skillSection.remove();
+      });
+  },
 };
 const skillList = document.querySelector("dl.skill-list");
-
-skills.generateList(skillList);
+const skillSection = document.querySelector(".skills");
 
 const skillsButtons = document.querySelector(".skills-buttons");
 
@@ -144,13 +134,13 @@ function startTheme() {
   if (localStorage.getItem("theme") == "true") {
     document.body.classList.remove("dark-theme");
     switchCheckbox.checked = true;
-    console.log("test1");
   }
   if (localStorage.getItem("theme") == "false") {
     document.body.classList.add("dark-theme");
     switchCheckbox.checked = false;
-    console.log(localStorage.getItem("theme"));
   }
 }
 
 startTheme();
+
+skills.initList("db/skills.json", skillList, skillSection);
